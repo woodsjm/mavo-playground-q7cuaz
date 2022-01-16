@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- Mavo Styles -->
     <script src="https://get.mavo.io/stable/mavo.js"></script>
-    <script src="mavo-firebase.js"></script>
+    <script src="mavo-firebase-firestore.js"></script>
 
     <link rel="stylesheet" href="node_modules/mavo/dist/mavo.css" />
 
@@ -42,6 +42,10 @@
       mv-storage-filename="todo"
       mv-storage-options="auth"
     >
+      <div class="mv-bar mv-ui">
+        <button class="mv-firebase-auth-google">Login</button>
+        <button class="mv-save">Store</button>
+      </div>
 
       <header>
         <h1>My tasks</h1>
