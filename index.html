@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- Mavo Styles -->
     <script src="https://get.mavo.io/stable/mavo.js"></script>
+    <script src="mavo-firebase.js"></script>
 
     <link rel="stylesheet" href="node_modules/mavo/dist/mavo.css" />
 
@@ -20,31 +21,6 @@
         --color-darkGrey: #777;
       }
     </style>
-    <script type="module">
-      // Import the functions you need from the SDKs you need
-      import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.3/firebase-app.js';
-      import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.6.3/firebase-analytics.js';
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
-
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      const firebaseConfig = {
-        apiKey: 'AIzaSyCKx5vRQ2mKCjLAf2k8XYaIiLVfVxk-QyM',
-        authDomain: 'lakeshore-swim-school.firebaseapp.com',
-        databaseURL:
-          'https://lakeshore-swim-school-default-rtdb.firebaseio.com',
-        projectId: 'lakeshore-swim-school',
-        storageBucket: 'lakeshore-swim-school.appspot.com',
-        messagingSenderId: '189353668590',
-        appId: '1:189353668590:web:b296aa2ce17f58cc9b28ff',
-        measurementId: 'G-L97HNH4BR7',
-      };
-
-      // Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      const analytics = getAnalytics(app);
-    </script>
     <script>
       if (
         window.matchMedia &&
@@ -55,12 +31,51 @@
     </script>
   </head>
   <body>
-    <div mv-app mv-storage="https://github.com/woodsjm/mavo-playground-q7cuaz">
+    <div
+      mv-app
+      mv-plugins="firebase-firestore"
+    mv-storage="firebase://"
+      mv-storage-key="
+			AIzaSyCKx5vRQ2mKCjLAf2k8XYaIiLVfVxk-QyM"
+      
+			mv-storage-project="lakeshore-swim-school"
+			mv-storage-collection="mavo-apps"
+			mv-storage-filename="todo"
+			mv-storage-options="auth realtime all-can-edit all-can-write storage"
+    >
+		<div class="mv-bar mv-ui">
+			<button class="mv-save">Store</button>
+	</div>
+		<header>
+			<h1>My tasks</h1>
+			<p>
+					<strong>[count(done)]</strong> done out of
+					<strong>[count(task)]</strong> total
+			</p>
+	</header>
+
+	<ul>
+			<li property="task" mv-multiple>
+					<label>
+							<input property="done" type="checkbox" />
+							<span property="taskTitle" mv-default="Placeholder text...">Do stuff</span>
+					</label>
+			</li>
+			<button
+					class="clear-completed mv-logged-in"
+					mv-action="delete(task where done)">
+					Clear Completed
+			</button>
+	</ul>
+
+    </div>
+  </body>
+</html>
+
       <!-- Your Mavo app here -->
+			<!--
       <div class="mv-bar mv-ui">
         <button class="mv-save">Store</button>
       </div>
       <div property="name" mv-default="Placeholder text..."></div>
-    </div>
-  </body>
-</html>
+		-->
