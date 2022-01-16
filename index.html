@@ -32,48 +32,47 @@
   </head>
   <body>
     <div
-      mv-app
+      mv-app="myAwesomeApp"
       mv-plugins="firebase-firestore"
-    mv-storage="firebase://"
+      mv-storage="firebase://"
       mv-storage-key="
 			AIzaSyCKx5vRQ2mKCjLAf2k8XYaIiLVfVxk-QyM"
-      
-			mv-storage-project="lakeshore-swim-school"
-			mv-storage-collection="mavo-apps"
-			mv-storage-filename="todo"
-			mv-storage-options="auth realtime all-can-edit all-can-write storage"
+      mv-storage-project="lakeshore-swim-school"
+      mv-storage-collection="mavo-apps"
+      mv-storage-filename="todo"
+      mv-storage-options="auth"
     >
-		<div class="mv-bar mv-ui">
-			<button class="mv-save">Store</button>
-	</div>
-		<header>
-			<h1>My tasks</h1>
-			<p>
-					<strong>[count(done)]</strong> done out of
-					<strong>[count(task)]</strong> total
-			</p>
-	</header>
 
-	<ul>
-			<li property="task" mv-multiple>
-					<label>
-							<input property="done" type="checkbox" />
-							<span property="taskTitle" mv-default="Placeholder text...">Do stuff</span>
-					</label>
-			</li>
-			<button
-					class="clear-completed mv-logged-in"
-					mv-action="delete(task where done)">
-					Clear Completed
-			</button>
-	</ul>
+      <header>
+        <h1>My tasks</h1>
+        <p>
+          <strong>[count(done)]</strong> done out of
+          <strong>[count(task)]</strong> total
+        </p>
+      </header>
 
+      <ul>
+        <li property="task" mv-multiple mv-order="desc">
+          <label>
+            <input property="done" type="checkbox" />
+            <span property="taskTitle" mv-default="Placeholder text..."
+              >Do stuff</span
+            >
+          </label>
+        </li>
+        <button
+          class="clear-completed mv-logged-in"
+          mv-action="delete(task where done)"
+        >
+          Clear Completed
+        </button>
+      </ul>
     </div>
   </body>
 </html>
 
-      <!-- Your Mavo app here -->
-			<!--
+<!-- Your Mavo app here -->
+<!--
       <div class="mv-bar mv-ui">
         <button class="mv-save">Store</button>
       </div>
