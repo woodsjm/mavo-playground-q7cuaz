@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- Mavo Styles -->
+    <script src="https://get.mavo.io/stable/mavo.js"></script>
+    <script src="mavo-firebase.js"></script>
+
     <link rel="stylesheet" href="node_modules/mavo/dist/mavo.css" />
 
     <title>Mavo Playground</title>
@@ -28,15 +31,50 @@
     </script>
   </head>
   <body>
-    <div mv-app mv-storage="local">
-      <!-- Your Mavo app here -->
+    <div
+      mv-app="myAwesomeApp"
+      mv-plugins="firebase-firestore"
+      mv-storage="firebase://"
+      mv-storage-key="
+			AIzaSyCKx5vRQ2mKCjLAf2k8XYaIiLVfVxk-QyM"
+      mv-storage-project="lakeshore-swim-school"
+      mv-storage-collection="mavo-apps"
+      mv-storage-filename="todo"
+      mv-storage-options="auth"
+    >
+
+      <header>
+        <h1>My tasks</h1>
+        <p>
+          <strong>[count(done)]</strong> done out of
+          <strong>[count(task)]</strong> total
+        </p>
+      </header>
+
+      <ul>
+        <li property="task" mv-multiple mv-order="desc">
+          <label>
+            <input property="done" type="checkbox" />
+            <span property="taskTitle" mv-default="Placeholder text..."
+              >Do stuff</span
+            >
+          </label>
+        </li>
+        <button
+          class="clear-completed mv-logged-in"
+          mv-action="delete(task where done)"
+        >
+          Clear Completed
+        </button>
+      </ul>
+    </div>
+  </body>
+</html>
+
+<!-- Your Mavo app here -->
+<!--
       <div class="mv-bar mv-ui">
         <button class="mv-save">Store</button>
       </div>
-      <div property="name">Lea</div>
-    </div>
-
-    <!-- Mavo Core -->
-    <script src="node_modules/mavo/dist/mavo.es5.min.js"></script>
-  </body>
-</html>
+      <div property="name" mv-default="Placeholder text..."></div>
+		-->
