@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- Mavo Styles -->
     <script src="https://get.mavo.io/stable/mavo.js"></script>
-    <script src="mavo-firebase.js"></script>
 
     <link rel="stylesheet" href="node_modules/mavo/dist/mavo.css" />
 
@@ -30,44 +29,40 @@
       }
     </script>
   </head>
-  <body>
-    <div
-      mv-app="myAwesomeApp"
-      mv-plugins="firebase-firestore"
-      mv-storage="firebase://"
-      mv-storage-key="
-			AIzaSyCKx5vRQ2mKCjLAf2k8XYaIiLVfVxk-QyM"
-      mv-storage-project="lakeshore-swim-school"
-      mv-storage-collection="mavo-apps"
-      mv-storage-filename="todo"
-      mv-storage-options="auth"
-    >
+  <body
+    mv-app
+    mv-plugins="firebase-firestore clear"
+    mv-storage="firebase://lakeshore-swim-school"
+    mv-storage-key="
+  AIzaSyCKx5vRQ2mKCjLAf2k8XYaIiLVfVxk-QyM"
+    mv-storage-project="lakeshore-swim-school"
+    mv-storage-collection="mavo-apps"
+    mv-storage-filename="todo"
+    mv-storage-options="auth storage"
+    mv-bar="with login logout edit save clear"
+  >
+    <header>
+      <h1>My tasks</h1>
+      <p>
+        <strong>[count(done)]</strong> done out of
+        <strong>[count(task)]</strong> total
+      </p>
+    </header>
 
-      <header>
-        <h1>My tasks</h1>
-        <p>
-          <strong>[count(done)]</strong> done out of
-          <strong>[count(task)]</strong> total
-        </p>
-      </header>
-
-      <ul>
-        <li property="task" mv-multiple mv-order="desc">
-          <label>
-            <input property="done" type="checkbox" />
-            <span property="taskTitle" mv-default="Placeholder text..."
-              >Do stuff</span
-            >
-          </label>
-        </li>
-        <button
-          class="clear-completed mv-logged-in"
-          mv-action="delete(task where done)"
-        >
-          Clear Completed
-        </button>
-      </ul>
-    </div>
+    <ul>
+      <li property="task" mv-multiple mv-order="desc">
+        <label>
+          <input property="done" type="checkbox" />
+          <span property="taskTitle" mv-default="Placeholder text..."></span>
+        </label>
+      </li>
+      <button
+        class="clear-completed mv-logged-in"
+        mv-action="delete(task where done)"
+      >
+        Clear Completed
+      </button>
+    </ul>
   </body>
 </html>
 
