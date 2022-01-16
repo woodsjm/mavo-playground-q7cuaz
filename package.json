@@ -1,0 +1,19 @@
+{
+  "name": "mavo-playground",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DmitrySharabin/mavo-playground.git"
+  },
+  "author": "Dmitry Sharabin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DmitrySharabin/mavo-playground/issues"
+  },
+  "homepage": "http://mavo.io",
+  "private": true,
+  "dependencies": {
+    "chota": "^0.8.0",
+    "mavo": "^0.2.0"
+  }
+}
